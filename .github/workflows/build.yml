@@ -7,21 +7,22 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
-    
+    runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4 # najnowsza wersja
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-    - name: Install Lazarus
-      run: choco install lazarus --yes
-
-    - name: Build project
+    - name: Install Free Pascal
       run: |
-        fpc project1.lpr
+        sudo apt update
+        sudo apt install -y fpc
+
+    - name: Compile project
+      run: fpc project1.lpr
 
     - name: Upload EXE
       uses: actions/upload-artifact@v4
       with:
         name: TimerApp
-        path: project1.exe
+        path: project1
