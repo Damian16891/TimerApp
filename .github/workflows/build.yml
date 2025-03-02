@@ -13,13 +13,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Install Free Pascal
+    - name: Install Free Pascal and Lazarus
       run: |
         sudo apt update
-        sudo apt install -y fpc
+        sudo apt install -y fpc fpc-source lazarus lcl
 
     - name: Compile project
-      run: fpc project1.lpr
+      run: fpc -Fu/usr/lib/lazarus/2.2.0/lcl/units/x86_64-linux project1.lpr
 
     - name: Upload EXE
       uses: actions/upload-artifact@v4
