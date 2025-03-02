@@ -37,7 +37,7 @@ jobs:
         run: fpc project1.lpr  # Zastąp 'project1.lpr' nazwą swojego pliku głównego w projekcie Lazarus
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3  # Zmieniamy na v3, bo ta wersja jest wspierana
+        uses: actions/upload-artifact@v4  # Używamy najnowszej wersji v4
         with:
           name: compiled-program
           path: project1  # Zastąp nazwą swojego pliku wynikowego, np. 'project1' lub 'project1.exe'
