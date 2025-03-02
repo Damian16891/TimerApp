@@ -25,7 +25,7 @@ jobs:
         run: fpc project1.lpr  # Zastąp 'your_project.lpr' nazwą swojego pliku głównego w projekcie Lazarus
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3  # Zmiana na v3
+        uses: actions/upload-artifact@v4  # Zmiana na v4
         with:
           name: compiled-program
-          path: ABC.exe  # Zastąp nazwą swojego pliku wynikowego, np. 'your_program' lub 'your_program.exe'
+          path: abc.exe  # Zastąp nazwą swojego pliku wynikowego, np. 'your_program' lub 'your_program.exe'
