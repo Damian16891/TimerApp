@@ -22,10 +22,10 @@ jobs:
           sudo apt-get install -y fpc lazarus
 
       - name: Compile Lazarus Project
-        run: fpc your_project.lpr  # Zastąp 'your_project.lpr' nazwą swojego pliku głównego w projekcie Lazarus
+        run: fpc your_project.lpr  # Zastąp 'project1.lpr' nazwą swojego pliku głównego w projekcie Lazarus
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
         with:
           name: compiled-program
-          path: your_program  # Zastąp nazwą swojego pliku wynikowego, np. 'your_program' lub 'your_program.exe'
+          path: ABC  # Zastąp nazwą swojego pliku wynikowego, np. 'your_program' lub 'your_program.exe'
