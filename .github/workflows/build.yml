@@ -11,7 +11,7 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4 # najnowsza wersja
 
     - name: Install Lazarus
       run: choco install lazarus --yes
@@ -21,7 +21,7 @@ jobs:
         fpc project1.lpr
 
     - name: Upload EXE
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: TimerApp
         path: project1.exe
