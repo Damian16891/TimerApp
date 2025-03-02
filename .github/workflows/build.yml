@@ -21,11 +21,23 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y fpc lazarus
 
+      - name: Install dependencies for GUI applications
+        run: |
+          sudo apt-get install -y \
+          libgtk-3-dev \
+          libx11-dev \
+          libxtst-dev \
+          libgdk-pixbuf2.0-dev \
+          libcanberra-gtk3-dev \
+          libgl1-mesa-glx \
+          libxmu6 \
+          libxpm4
+
       - name: Compile Lazarus Project
-        run: fpc project1.lpr  # Zastąp 'your_project.lpr' nazwą swojego pliku głównego w projekcie Lazarus
+        run: fpc project1.lpr  # Zastąp 'project1.lpr' nazwą swojego pliku głównego w projekcie Lazarus
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v4  # Zmiana na v4
+        uses: actions/upload-artifact@v3
         with:
           name: compiled-program
-          path: abc.exe  # Zastąp nazwą swojego pliku wynikowego, np. 'your_program' lub 'your_program.exe'
+          path: project1  # Zastąp nazwą swojego pliku wynikowego, np. 'project1' lub 'project1.exe'
