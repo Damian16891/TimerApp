@@ -13,19 +13,20 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v4
 
-      - name: Install FreePascal and Lazarus
-        run: |
-          choco install fpc
-          choco install lazarus
+    - name: Install Lazarus & FPC
+      run: |
+        choco install lazarus --version=2.2.4 --yes
+        echo "C:\\lazarus" >> $env:GITHUB_PATH
 
-      - name: Compile Lazarus Project
-        run: fpc project1.lpr  # Zastąp 'project1.lpr' nazwą swojego pliku głównego w projekcie Lazarus
+    - name: Build Project
+      run: |
+        lazbuild project1.lpi
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: compiled-program
-          path: project1.exe  # Zastąp nazwą swojego pliku wynikowego
+    - name: Upload Executable
+      uses: actions/upload-artifact@v4
+      with:
+        name: TimerApp.exe
+        path: project1.exe
