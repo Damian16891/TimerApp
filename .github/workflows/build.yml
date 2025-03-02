@@ -19,11 +19,7 @@ jobs:
       - name: Install FreePascal and Lazarus
         run: |
           sudo apt-get update
-          sudo apt-get install -y fpc lazarus
-
-      - name: Install dependencies for GUI applications (without libgl1-mesa-glx)
-        run: |
-          sudo apt-get install -y \
+          sudo apt-get install -y fpc lazarus libc6-dev \
           libgtk-3-dev \
           libx11-dev \
           libxtst-dev \
